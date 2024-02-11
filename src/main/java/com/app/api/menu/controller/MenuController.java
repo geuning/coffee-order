@@ -16,9 +16,9 @@ import java.util.List;
 public class MenuController {
     private final MenuFacadeService menuFacadeService;
 
-    @GetMapping("/search")
-    public ResponseEntity<List<MenuSearchResponseDto>> searchMenu(){
-        List<MenuSearchResponseDto> menuSearchResponseDtos = menuFacadeService.searchMenu();
+    @GetMapping("/search-all")
+    public ResponseEntity<List<MenuSearchResponseDto>> searchAllMenu(){
+        List<MenuSearchResponseDto> menuSearchResponseDtos = menuFacadeService.searchAllMenu();
         return ResponseEntity.ok(menuSearchResponseDtos);
     }
 }
