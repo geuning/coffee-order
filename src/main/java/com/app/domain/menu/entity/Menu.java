@@ -9,19 +9,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "`MENU`")
+@Table(name = "`menu`")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Menu extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "menu_id")
     private Long menuId;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "menu_name", nullable = false, length = 50)
     private String menuName;
 
-    @Column(nullable = false)
+    @Column(name = "menu_price", nullable = false)
     private Long menuPrice;
 
     @Builder

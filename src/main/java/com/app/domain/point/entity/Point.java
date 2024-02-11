@@ -11,20 +11,21 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "`POINT`")
+@Table(name = "`point`")
 public class Point extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "point_id")
     private Long pointId;
 
-    @Column(nullable = false, length = 10)
+    @Column(name ="point_type", nullable = false, length = 10)
     private String pointType;
 
-    @Column(nullable = false)
+    @Column(name = "point", nullable = false)
     private Long point;
 
-    @Column(nullable = false)
+    @Column(name = "before_point", nullable = false)
     private Long beforePoint;
 
     @ManyToOne(fetch = FetchType.LAZY)

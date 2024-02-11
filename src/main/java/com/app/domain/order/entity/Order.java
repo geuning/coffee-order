@@ -10,22 +10,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "`ORDER`")
+@Table(name = "`order`")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
     private Long orderId;
 
-    @Column(nullable = false)
+    @Column(name = "order_price", nullable = false)
     private Long orderPrice;
 
-    @Column(nullable = false)
+    @Column(name = "order_quantity", nullable = false)
     private Long orderQuantity;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "menu_name", nullable = false, length = 50)
     private String menuName;
 
     @ManyToOne(fetch = FetchType.LAZY)

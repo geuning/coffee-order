@@ -1,6 +1,5 @@
 package com.app.domain.member.entity;
 
-import com.app.domain.common.BaseEntity;
 import com.app.domain.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -11,17 +10,18 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "`MEMBER`")
+@Table(name = "`member`")
 public class Member extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "member_id")
     private Long memberId;
 
-    @Column(nullable = false, length = 100)
+    @Column(name = "member_name", nullable = false, length = 100)
     private String memberName;
 
-    @Column(nullable = false)
+    @Column(name = "member_point", nullable = false)
     private Long memberPoint;
 
     @Builder
