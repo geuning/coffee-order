@@ -11,15 +11,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "POINT")
+@Table(name = "`POINT`")
 public class Point extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pointId;
 
-    @Column(nullable = false)
-    private String type;
+    @Column(nullable = false, length = 10)
+    private String pointType;
 
     @Column(nullable = false)
     private Long point;
@@ -27,20 +27,16 @@ public class Point extends BaseEntity {
     @Column(nullable = false)
     private Long beforePoint;
 
-    @Column(nullable = false)
-    private Long afterPoint;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Member member;
 
     @Builder
-    public Point(Long pointId, String type, Long point, Long beforePoint, Long afterPoint, Member member){
+    public Point(Long pointId, String pointType, Long point, Long beforePoint, Member member){
         this.pointId = pointId;
-        this.type = type;
+        this.pointType = pointType;
         this.point = point;
         this.beforePoint = beforePoint;
-        this.afterPoint = afterPoint;
         this.member = member;
     }
 

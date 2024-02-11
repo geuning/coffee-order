@@ -1,6 +1,7 @@
 package com.app.domain.member.entity;
 
 import com.app.domain.common.BaseEntity;
+import com.app.domain.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -10,24 +11,24 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "MEMBER")
-public class Member extends BaseEntity {
+@Table(name = "`MEMBER`")
+public class Member extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberId;
 
-    @Column(nullable = false)
-    private String name;
+    @Column(nullable = false, length = 100)
+    private String memberName;
 
     @Column(nullable = false)
-    private Long point;
+    private Long memberPoint;
 
     @Builder
-    public Member(Long memberId, String name, Long point){
+    public Member(Long memberId, String memberName, Long memberPoint){
         this.memberId = memberId;
-        this.name = name;
-        this.point = point;
+        this.memberName = memberName;
+        this.memberPoint = memberPoint;
     }
 
 
